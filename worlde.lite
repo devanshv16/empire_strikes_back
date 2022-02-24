@@ -1,0 +1,65 @@
+l=['actor','basic','chose','drink','elder']
+from random import randrange
+while True:    
+    n=randrange(0,len(l))
+    word=l[n]
+    c=0
+    while c<6:
+        b=0
+        print('enter try',c+1,': ')
+        inp=input()
+        
+        if len(inp)==5:
+            l1=list(word)
+            l2=list(inp)
+            f=[]
+            f1=[]
+            for i in range(5):
+                if l1[i]==l2[i]:
+                    f.append([i,'$'])
+                else:
+                    f.append([i,"X"])
+            for i in range(5):#word
+                for j in range(5):#input
+                    if l1[i]==l2[j] and i!=j and f[j][1]=='X':
+                        f1.append(j)
+                        break          
+            f.sort()
+            c1=0
+            for i in f1:
+                for j in f:
+                    if i==j[0]:
+                        j[1]='*'
+            for i in f:
+                print(i[1],end='')
+                if i[1]=='$':
+                    c1+=1
+            print()
+            a=0
+            if c1==5:
+                print('congratulations you did it in',c+1,'tries')
+                a=1
+                break
+            c+=1
+        else:
+            print('please enter a 5 letter word')
+    if a==0:
+        print("oh no you lost, please try again")
+    a=input('again? (y/n): ')
+    if a in 'nN':
+        break
+
+
+print('thank you for playing, hope to see you again! ')             
+        
+                       
+                       
+            
+                       
+                
+                
+    
+    
+    
+
+
